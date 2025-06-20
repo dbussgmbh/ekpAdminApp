@@ -3,16 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="de.dbuss.ekpadminapp.controller.TableController"
-            style="-fx-padding: 20;">
-    <center>
-        <TableView fx:id="tableView">
-            <columns>
-                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
-                <TableColumn fx:id="emailColumn" text="Email" prefWidth="250"/>
-            </columns>
-        </TableView>
-    </center>
-</BorderPane>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="de.dbuss.ekpadminapp.controller.TableController"
+      spacing="10" style="-fx-padding: 20;">
+
+    <HBox spacing="10">
+        <TextField fx:id="sqlInput" promptText="Geben Sie eine SQL-Abfrage ein..." HBox.hgrow="ALWAYS"/>
+        <Button text="Ausführen" onAction="#onExecuteQuery"/>
+    </HBox>
+
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS"/>
+</VBox>
