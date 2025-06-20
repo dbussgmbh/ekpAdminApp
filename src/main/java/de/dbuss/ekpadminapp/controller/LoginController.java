@@ -14,14 +14,14 @@ public class LoginController {
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
-    @FXML private Label messageLabel;
+    @FXML private Label wrongLogIn;
 
     @FXML
     protected void onLogin(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if ("admin".equals(username) && "password".equals(password)) {
+        if ("admin".equals(username) && "admin".equals(password)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/dbuss/ekpadminapp/view/TableView.fxml"));
                 Scene tableScene = new Scene(loader.load());
@@ -32,7 +32,8 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            messageLabel.setText("Login failed. Try admin/password.");
+            wrongLogIn.setText("Login failed, try again");
         }
     }
+
 }

@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/dbuss/ekpadminapp/view/Login.fxml"));
-        Scene scene = new Scene(loader.load());
+        Scene scene = new Scene(loader.load(),650,450);
         stage.setScene(scene);
         stage.setTitle("Login");
         stage.show();
