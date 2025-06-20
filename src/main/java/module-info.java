@@ -5,4 +5,6 @@ module de.dbuss.ekpadminapp {
 
     opens de.dbuss.ekpadminapp to javafx.fxml;
     exports de.dbuss.ekpadminapp;
+    exports de.dbuss.ekpadminapp.Controller;
+    opens de.dbuss.ekpadminapp.Controller to javafx.fxml;
 }
