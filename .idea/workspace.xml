@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Dynamische Abfrage">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" afterDir="false" />
+    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Main View eingebaut">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/page1.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/page2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -42,7 +43,7 @@
     "Maven.ekpadminapp [compile].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Entwicklung/ekpAdminApp",
+    "last_opened_file_path": "C:/Entwicklung/ekpAdminApp/src/main/resources/de/dbuss/ekpadminapp/view",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +55,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Entwicklung\ekpAdminApp\src\main\resources\de\dbuss\ekpadminapp\view" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Java/jdk22" />
@@ -82,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750421259788</updated>
-      <workItem from="1750421260958" duration="8487000" />
+      <workItem from="1750421260958" duration="13142000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -132,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750430411260</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Main View eingebaut">
+      <option name="closed" value="true" />
+      <created>1750489116921</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750489116921</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
     <MESSAGE value="Dynamische Abfrage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dynamische Abfrage" />
+    <MESSAGE value="Main View eingebaut" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main View eingebaut" />
   </component>
 </project>
