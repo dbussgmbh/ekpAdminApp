@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Initial">
+    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Dynamische Abfrage">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/TableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750421259788</updated>
-      <workItem from="1750421260958" duration="5618000" />
+      <workItem from="1750421260958" duration="8487000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -102,7 +108,31 @@
       <option name="project" value="LOCAL" />
       <updated>1750422067106</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial">
+      <option name="closed" value="true" />
+      <created>1750430149441</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750430149441</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initial">
+      <option name="closed" value="true" />
+      <created>1750430154992</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750430154992</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dynamische Abfrage">
+      <option name="closed" value="true" />
+      <created>1750430411260</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750430411260</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +140,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="Dynamische Abfrage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dynamische Abfrage" />
   </component>
 </project>

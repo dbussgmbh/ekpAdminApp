@@ -12,7 +12,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/dbuss/ekpadminapp/view/Login.fxml"));
         Scene scene = new Scene(loader.load(),650,450);
         stage.setScene(scene);
-        stage.setTitle("Login");
+        stage.setTitle("eKP Admin App Login");
         stage.show();
     }
 

@@ -21,6 +21,21 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/dbuss/ekpadminapp/view/MainView.fxml"));
+            Scene tableScene = new Scene(loader.load(), 800, 600);
+            Stage stage = (Stage) usernameField.getScene().getWindow();
+            stage.setScene(tableScene);
+            stage.setTitle("eKP Admin App");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        /*
+
+
         if ("admin".equals(username) && "admin".equals(password)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/dbuss/ekpadminapp/view/TableView.fxml"));
@@ -34,6 +49,9 @@ public class LoginController {
         } else {
             wrongLogIn.setText("Login failed, try again");
         }
+
+
+         */
     }
 
 }
