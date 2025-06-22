@@ -16,7 +16,7 @@ public class MainController {
     private AnchorPane contentPane;
     @FXML
     private void loadPage1() {
-        loadPage("/de/dbuss/ekpadminapp/view/page1.fxml");
+        loadPage("/de/dbuss/ekpadminapp/view/TableView.fxml");
     }
 
     @FXML
@@ -30,12 +30,12 @@ public class MainController {
             contentPane.getChildren().setAll(node);
 
             // Optional: Füllung des Ankerbereichs
-       /*     AnchorPane.setTopAnchor(node, 0.0);
+            AnchorPane.setTopAnchor(node, 0.0);
             AnchorPane.setBottomAnchor(node, 0.0);
             AnchorPane.setLeftAnchor(node, 0.0);
             AnchorPane.setRightAnchor(node, 0.0);
 
-        */
+
 
         } catch (IOException e) {
             e.printStackTrace();
