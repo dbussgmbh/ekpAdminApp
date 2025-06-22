@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="de.dbuss.ekpadminapp.controller.TableController"
-      spacing="10" style="-fx-padding: 20;">
+<VBox spacing="10" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dbuss.ekpadminapp.controller.TableController">
 
     <HBox spacing="10">
-        <TextField fx:id="sqlInput" promptText="Geben Sie eine SQL-Abfrage ein..." HBox.hgrow="ALWAYS"/>
-        <Button text="Ausführen" onAction="#onExecuteQuery"/>
+      <ChoiceBox fx:id="dB_Connection" accessibleHelp="Auswahl der Umgebung" accessibleText="Umgebung" prefWidth="150.0" />
+      <ChoiceBox fx:id="dB_Query" prefWidth="150.0" />
+        <TextField fx:id="sqlInput" promptText="Geben Sie eine SQL-Abfrage ein..." HBox.hgrow="ALWAYS" />
+        <Button onAction="#onExecuteQuery" text="Ausführen" />
     </HBox>
 
-    <TableView fx:id="tableView" VBox.vgrow="ALWAYS"/>
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS" />
 </VBox>
