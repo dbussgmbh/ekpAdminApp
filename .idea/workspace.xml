@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Exit Button mit funktion und neue Seiten">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/Page2Controller.java" afterDir="false" />
+    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Bild hinzu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/page2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/dbuss/ekpadminapp/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/dbuss/ekpadminapp/view/Login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750421259788</updated>
-      <workItem from="1750421260958" duration="17645000" />
+      <workItem from="1750421260958" duration="18113000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -158,7 +153,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750509137029</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Login Seite angepasst">
+      <option name="closed" value="true" />
+      <created>1750578864224</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750578864225</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Bild hinzu">
+      <option name="closed" value="true" />
+      <created>1750578916832</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750578916832</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +180,8 @@
     <MESSAGE value="Dynamische Abfrage" />
     <MESSAGE value="Main View eingebaut" />
     <MESSAGE value="Exit Button mit funktion und neue Seiten" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exit Button mit funktion und neue Seiten" />
+    <MESSAGE value="Login Seite angepasst" />
+    <MESSAGE value="Bild hinzu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bild hinzu" />
   </component>
 </project>
