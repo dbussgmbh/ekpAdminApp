@@ -1,6 +1,7 @@
 package de.dbuss.ekpadminapp.controller;
 
 import de.dbuss.ekpadminapp.model.User;
+import de.dbuss.ekpadminapp.util.DbConfig;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,11 +10,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 
 public class TableController {
 
+    private static final Logger logger = LogManager.getLogger(TableController.class);
 
     @FXML private TableColumn<User, String> nameColumn;
     @FXML private TableColumn<User, String> emailColumn;
@@ -28,31 +32,18 @@ public class TableController {
     String password = "ekp";
 
 
-    private void loadUsersFromDatabase() {
-
-
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT Benutzer_Kennung, name FROM ela_Favoriten")) {
-
-            while (rs.next()) {
-                String name = rs.getString("Benutzer_Kennung");
-                String email = rs.getString("name");
-                users.add(new User(name, email));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @FXML
     public void onExecuteQuery() {
         String sql = sqlInput.getText();
         if (sql == null || sql.isBlank()) return;
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
+
+        logger.trace("DB-URL: " + DbConfig.getUrl());
+        logger.trace("DB-User: " + DbConfig.getUser());
+        logger.trace("DB-Password: " + DbConfig.getPassword());
+
+        try (Connection conn = DriverManager.getConnection(DbConfig.getUrl(), DbConfig.getUser(), DbConfig.getPassword());
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
