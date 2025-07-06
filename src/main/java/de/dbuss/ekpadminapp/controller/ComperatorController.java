@@ -3,6 +3,7 @@ package de.dbuss.ekpadminapp.controller;
 import de.dbuss.ekpadminapp.model.QueryModel;
 import de.dbuss.ekpadminapp.util.DBConfigResolver;
 import de.dbuss.ekpadminapp.util.DBQueryExecutor;
+import de.dbuss.ekpadminapp.util.DbConfig;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -34,8 +35,8 @@ public class ComperatorController {
     @FXML
     public void initialize() {
         try {
-            Connection oracleConn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@37.120.189.200:1521:xe", "EKP_MONITOR", "xxxx");
+            Connection oracleConn = DriverManager.getConnection(DbConfig.getUrl(), DbConfig.getUser(), DbConfig.getPassword());
+            //        "jdbc:oracle:thin:@37.120.189.200:1521:xe", "EKP_MONITOR", "xxxx");
 
             resolver = new DBConfigResolver(oracleConn);
             dbMap = resolver.resolveConnections();
