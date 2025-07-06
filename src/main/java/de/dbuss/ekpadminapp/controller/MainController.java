@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
@@ -20,9 +19,15 @@ public class MainController {
     }
 
     @FXML
-    private void loadPage2() {
-        loadPage("/de/dbuss/ekpadminapp/view/page2.fxml");
+    private void message_export() {
+        loadPage("/de/dbuss/ekpadminapp/view/MessageExport.fxml");
     }
+
+    @FXML
+    private void comperator() {
+        loadPage("/de/dbuss/ekpadminapp/view/Comperator.fxml");
+    }
+
 
     private void loadPage(String path) {
         try {

@@ -15,9 +15,10 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="TableViewer" onAction="#loadPage1"/>
-                  <MenuItem mnemonicParsing="false" text="Message-Export"  onAction="#loadPage2" />
-                  <SeparatorMenuItem/>
-                  <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleClose" />
+              <MenuItem mnemonicParsing="false" text="Message-Export"  onAction="#message_export" />
+                <MenuItem mnemonicParsing="false" text="Comperator"  onAction="#comperator" />
+              <SeparatorMenuItem/>
+              <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleClose" />
 
 
 <!--                <CustomMenuItem hideOnClick="true">

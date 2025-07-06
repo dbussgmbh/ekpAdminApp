@@ -80,7 +80,7 @@ public class TableController implements Initializable {
     }
 
     private void executeSql(String sql, DbConnectionInfo connInfo) {
-        if (sql == null || sql.isBlank()) return;
+        if (sql == null || sql.trim().isEmpty() ) return;
 
         Scene scene = tableView.getScene(); // oder eine andere bekannte Node
         scene.setCursor(Cursor.WAIT);
@@ -91,7 +91,8 @@ public class TableController implements Initializable {
 
         logger.info("decodedBytes = " + new String(decodedBytes));
 
-        Task<ObservableList<ObservableList<String>>> task = new Task<>() {
+        //Task<ObservableList<ObservableList<String>>> task = new Task<>() {
+        Task<ObservableList<ObservableList<String>>> task = new Task<ObservableList<ObservableList<String>>>() {
             @Override
             protected ObservableList<ObservableList<String>> call() throws Exception {
                 try (Connection conn = DriverManager.getConnection(connInfo.url, connInfo.user, new String(decodedBytes));
@@ -208,7 +209,7 @@ public class TableController implements Initializable {
      */
 
     private void executeSql(String sql) {
-        if (sql == null || sql.isBlank()) return;
+        if (sql == null || sql.trim().isEmpty()) return;
 
         try (Connection conn = DriverManager.getConnection(
                 DbConfig.getUrl(), DbConfig.getUser(), DbConfig.getPassword());
@@ -283,7 +284,7 @@ public class TableController implements Initializable {
 
     private DbConnectionInfo getDbConnectionFromSelection() {
         String connectionName = dB_Connection.getSelectionModel().getSelectedItem();
-        if (connectionName == null || connectionName.isBlank()) {
+        if (connectionName == null || connectionName.trim().isEmpty()) {
             showError("Fehler", "Keine Datenbankverbindung ausgewählt.");
             return null;
         }
@@ -318,21 +319,32 @@ public class TableController implements Initializable {
     private void loadDbConnections() {
         String sql = "SELECT name FROM sql_configuration";
 
-        try (Connection conn = DriverManager.getConnection(
-                DbConfig.getUrl(), DbConfig.getUser(), DbConfig.getPassword());
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+        try {
+            // JDBC-Treiber explizit laden (nur nötig bei Java 8)
+            Class.forName("oracle.jdbc.OracleDriver");
 
-            while (rs.next()) {
-                String name = rs.getString("name");
-                dB_Connection.getItems().add(name);
-                dB_Connection.getSelectionModel().selectFirst();
+            try (
+                    Connection conn = DriverManager.getConnection(
+                            DbConfig.getUrl(), DbConfig.getUser(), DbConfig.getPassword());
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery(sql)
+            ) {
+
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    dB_Connection.getItems().add(name);
+                    dB_Connection.getSelectionModel().selectFirst();
+                }
+
+                logger.info("DB-Verbindungen erfolgreich geladen.");
+
+            } catch (SQLException e) {
+                logger.error("Fehler beim Laden der DB-Verbindungen", e);
             }
 
-            logger.info("DB-Verbindungen erfolgreich geladen.");
-
-        } catch (SQLException e) {
-            logger.error("Fehler beim Laden der DB-Verbindungen", e);
+        } catch (ClassNotFoundException e) {
+            // Wird geworfen, wenn der Oracle-Treiber nicht gefunden wird
+            logger.error("Oracle JDBC-Treiber nicht gefunden!", e);
         }
     }
 
