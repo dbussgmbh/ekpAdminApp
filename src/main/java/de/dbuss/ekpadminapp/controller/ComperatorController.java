@@ -35,7 +35,7 @@ public class ComperatorController {
     public void initialize() {
         try {
             Connection oracleConn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@37.120.189.200:1521:xe", "EKP_MONITOR", "ekp123");
+                    "jdbc:oracle:thin:@37.120.189.200:1521:xe", "EKP_MONITOR", "xxxx");
 
             resolver = new DBConfigResolver(oracleConn);
             dbMap = resolver.resolveConnections();
