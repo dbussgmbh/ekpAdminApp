@@ -11,8 +11,8 @@
     <children>
         <HBox prefHeight="30.0" prefWidth="200.0">
             <children>
-                <Button onAction="#onRefreshClick" text="🔄 Refresh" />
-                <Button onAction="#onExportClick" text="💾 Export CSV" />
+                <Button fx:id="loadButton" onAction="#onRefreshClick" text="Execute" />
+                <Button onAction="#onExportClick" text="Export CSV" />
                 <TextField fx:id="filterField" />
             </children>
         </HBox>

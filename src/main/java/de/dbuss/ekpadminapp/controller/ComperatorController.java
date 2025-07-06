@@ -4,7 +4,11 @@ import de.dbuss.ekpadminapp.model.QueryModel;
 import de.dbuss.ekpadminapp.util.DBConfigResolver;
 import de.dbuss.ekpadminapp.util.DBQueryExecutor;
 import de.dbuss.ekpadminapp.util.DbConfig;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,6 +28,8 @@ public class ComperatorController {
     private TableView<Map<String, String>> tableView;
 
     @FXML
+    private Button loadButton;
+    @FXML
     private TextField filterField;
 
     private DBConfigResolver resolver;
@@ -42,7 +48,8 @@ public class ComperatorController {
             dbMap = resolver.resolveConnections();
 
             setupFilter();
-            refreshTable();
+            //refresh();
+            //initTable();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,8 +70,118 @@ public class ComperatorController {
 
     @FXML
     private void onRefreshClick() {
-        refreshTable();
+        refresh();
+
     }
+
+
+
+    private void refresh() {
+
+        Scene scene = tableView.getScene();
+        if (scene == null) return;
+
+        scene.setCursor(Cursor.WAIT);
+
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                List<Map<String, String>> result = loadData(); // führt DB-Zugriffe durch
+                Platform.runLater(() -> updateTable(result));   // GUI aktualisieren
+                return null;
+            }
+        };
+
+        task.setOnSucceeded(e -> {
+            scene.setCursor(Cursor.DEFAULT);
+            loadButton.setText("Refresh");
+        });
+        task.setOnFailed(e -> {
+            scene.setCursor(Cursor.DEFAULT);
+            task.getException().printStackTrace();
+        });
+
+        new Thread(task).start();
+
+
+    }
+
+
+
+    private void updateTable(List<Map<String, String>> newData) {
+        data.clear();
+        tableView.getColumns().clear();
+
+        data.addAll(newData);
+
+        Set<String> allKeys = new LinkedHashSet<>();
+        for (Map<String, String> row : data) {
+            allKeys.addAll(row.keySet());
+        }
+
+        for (String key : allKeys) {
+            TableColumn<Map<String, String>, String> col = new TableColumn<>(key);
+            col.setCellValueFactory(data -> new SimpleStringProperty(
+                    data.getValue().getOrDefault(key, "")
+            ));
+
+            if (!key.equals("SQL")) {
+                col.setCellFactory(column -> new TableCell<Map<String, String>, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+                        setStyle("");
+                        if (!empty && item != null) {
+                            Map<String, String> row = getTableView().getItems().get(getIndex());
+                            String referenceValue = row.entrySet().stream()
+                                    .filter(e -> !e.getKey().equals("SQL"))
+                                    .map(Map.Entry::getValue)
+                                    .findFirst().orElse(null);
+
+                            if (referenceValue != null && !referenceValue.equals(item)) {
+                                setStyle("-fx-background-color: lightcoral; -fx-text-fill: black;");
+                            }
+                        }
+                    }
+                });
+            }
+
+            tableView.getColumns().add(col);
+        }
+
+        if (filteredData != null)
+            filteredData.setPredicate(null);
+        tableView.setItems(data);
+    }
+
+    private List<Map<String, String>> loadData() throws Exception {
+        List<Map<String, String>> rows = new ArrayList<>();
+        List<QueryModel> queries = resolver.loadQueries();
+
+        for (QueryModel qm : queries) {
+            Map<String, String> row = new HashMap<>();
+            row.put("SQL", qm.getSql());
+            for (String db : qm.getDbKuerzel()) {
+                if (dbMap.containsKey(db)) {
+                    String[] parts = dbMap.get(db).split(";");
+                    String jdbcUrl = parts[0];
+                    String user = parts[1];
+                    String pass = parts[2];
+                    System.out.printf("==> Kürzel: %s → URL: %s | USER: %s | PASS: %s%n", db, jdbcUrl, user, pass);
+
+                    String result = DBQueryExecutor.execute(jdbcUrl, user, pass, qm.getSql());
+                    row.put(db, result);
+                } else {
+                    row.put(db, "Unbekannt");
+                }
+            }
+            rows.add(row);
+        }
+
+        return rows;
+    }
+
 
     @FXML
     private void onExportClick() {
@@ -93,9 +210,19 @@ public class ComperatorController {
         }
     }
 
-    private void refreshTable() {
+    private void initTable() {
         data.clear();
         tableView.getColumns().clear();
+
+        Scene scene = tableView.getScene();
+
+        System.out.println("tableView: " + tableView.toString());
+
+        System.out.println("Scene: " + scene);
+
+      //  if (scene == null) return;
+
+      //  scene.setCursor(Cursor.WAIT);
 
         try {
             List<QueryModel> queries = resolver.loadQueries();
@@ -109,6 +236,8 @@ public class ComperatorController {
                         String jdbcUrl = parts[0];
                         String user = parts[1];
                         String pass = parts[2];
+
+                        System.out.printf("==> Kürzel: %s → URL: %s | USER: %s | PASS: %s%n", db, jdbcUrl, user, pass);
 
                         String result = DBQueryExecutor.execute(jdbcUrl, user, pass, qm.getSql());
                         row.put(db, result);
@@ -161,7 +290,10 @@ public class ComperatorController {
                 tableView.getColumns().add(col);
             }
 
+       //     scene.setCursor(Cursor.DEFAULT);
+
         } catch (Exception ex) {
+            //scene.setCursor(Cursor.DEFAULT);
             ex.printStackTrace();
         }
     }
