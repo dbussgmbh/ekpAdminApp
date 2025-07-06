@@ -82,6 +82,8 @@ public class ComperatorController {
         if (scene == null) return;
 
         scene.setCursor(Cursor.WAIT);
+        loadButton.setText("⏳ Lädt...");
+        loadButton.setDisable(true);
 
         Task<Void> task = new Task<Void>() {
             @Override
@@ -95,6 +97,7 @@ public class ComperatorController {
         task.setOnSucceeded(e -> {
             scene.setCursor(Cursor.DEFAULT);
             loadButton.setText("Refresh");
+            loadButton.setDisable(false);
         });
         task.setOnFailed(e -> {
             scene.setCursor(Cursor.DEFAULT);
