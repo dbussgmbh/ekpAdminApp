@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Neue Auswahlboxen hinzu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ComperatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MessageExportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/model/QueryModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/service/DatabaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/util/DBConfigResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/util/DBQueryExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Comperator.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/readme.txt" afterDir="false" />
+    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Comperator hinzu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ExporterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Exporter.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/Page2Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/TableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/page2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MessageExport.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +43,13 @@
     "Maven.ekpadminapp [compile].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Entwicklung/Weblogic/wlfullclient.jar",
+    "last_opened_file_path": "C:/Java/javafx-sdk-24.0.1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.46551725",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -80,10 +69,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Java/jdk22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="de.dbuss.ekpadminapp.Main" />
       <module name="ekpadminapp" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-24.0.1\lib&quot; --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web --add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,7 +97,9 @@
       <updated>1750421259788</updated>
       <workItem from="1750421260958" duration="43128000" />
       <workItem from="1751002333050" duration="9322000" />
-      <workItem from="1751692109530" duration="4736000" />
+      <workItem from="1751692109530" duration="9781000" />
+      <workItem from="1752037685881" duration="594000" />
+      <workItem from="1754647329754" duration="4324000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -237,7 +229,47 @@
       <option name="project" value="LOCAL" />
       <updated>1750605299318</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Comperator hinzu">
+      <option name="closed" value="true" />
+      <created>1751783813478</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1751783813478</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Comperator hinzu">
+      <option name="closed" value="true" />
+      <created>1751783843376</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1751783843376</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Comperator hinzu">
+      <option name="closed" value="true" />
+      <created>1751785618207</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1751785618207</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Comperator hinzu">
+      <option name="closed" value="true" />
+      <created>1751787588437</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1751787588437</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Comperator hinzu">
+      <option name="closed" value="true" />
+      <created>1751787821430</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1751787821430</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +285,8 @@
     <MESSAGE value="Anmeldung über DB-Tabelle" />
     <MESSAGE value="Auslagerung der Verbindungsparameter" />
     <MESSAGE value="Neue Auswahlboxen hinzu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Neue Auswahlboxen hinzu" />
+    <MESSAGE value="Comperator hinzu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comperator hinzu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
