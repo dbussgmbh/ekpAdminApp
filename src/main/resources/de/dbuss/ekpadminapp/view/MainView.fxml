@@ -3,22 +3,21 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
-
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.CustomMenuItem?>
-<AnchorPane prefHeight="412.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #1D98B1;" fx:controller="de.dbuss.ekpadminapp.controller.MainController">
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="412.0" prefWidth="596.0" style="-fx-background-color: #1D98B1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dbuss.ekpadminapp.controller.MainController">
    <children>
       <MenuBar prefHeight="31.0" prefWidth="596.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="TableViewer" onAction="#loadPage1"/>
-              <MenuItem mnemonicParsing="false" text="Message-Export"  onAction="#message_export" />
-                <MenuItem mnemonicParsing="false" text="Comperator"  onAction="#comperator" />
-              <SeparatorMenuItem/>
-              <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleClose" />
+              <MenuItem mnemonicParsing="false" onAction="#loadPage1" text="TableViewer" />
+              <MenuItem mnemonicParsing="false" onAction="#message_export" text="Message-Export" />
+                <MenuItem mnemonicParsing="false" onAction="#comperator" text="Comperator" />
+                <MenuItem mnemonicParsing="false" onAction="#exporter" text="Exporter" />
+              <SeparatorMenuItem />
+              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Exit" />
 
 
 <!--                <CustomMenuItem hideOnClick="true">
@@ -49,9 +48,7 @@
       </MenuBar>
 
        <!-- Hier wird die Seite dynamisch geladen -->
-       <AnchorPane fx:id="contentPane"
-                   AnchorPane.topAnchor="31.0" AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+       <AnchorPane fx:id="contentPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0" />
 
 
    </children>

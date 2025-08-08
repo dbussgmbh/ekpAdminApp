@@ -28,6 +28,11 @@ public class MainController {
         loadPage("/de/dbuss/ekpadminapp/view/Comperator.fxml");
     }
 
+    @FXML
+    private void exporter() {
+        loadPage("/de/dbuss/ekpadminapp/view/Exporter.fxml");
+    }
+
 
     private void loadPage(String path) {
         try {
