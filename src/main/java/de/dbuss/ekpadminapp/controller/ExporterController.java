@@ -216,17 +216,16 @@ public class ExporterController {
 //        }
 //    }
 
-    public  void exportToZipAsync(String tableName, String zipPath, TextArea logArea, ProgressBar progressBar) {
+    public void exportToZipAsync(String tableName, String zipPath, TextArea logArea, ProgressBar progressBar) {
 
         Integer countRows = getCountRows(tableName);
+        final int total = (countRows != null && countRows > 0) ? countRows : -1;
 
-        Task<Void> task = new Task<>() {
+        Task<Void> task = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
                 try (
-                        Statement stmt = oracleConn.createStatement(
-                                ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY
-                        );
+                        Statement stmt = oracleConn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
                         ResultSet rs = stmt.executeQuery("SELECT * FROM " + tableName);
                         FileOutputStream fos = new FileOutputStream(zipPath);
                         ZipOutputStream zos = new ZipOutputStream(fos);
@@ -245,19 +244,20 @@ public class ExporterController {
 
                     int rowIndex = 0;
                     int tick = 0;
-                    // ggf. indeterminate aktivieren
+
+                    if (total <= 0) updateProgress(-1, -1); // indeterminate
+
                     while (rs.next()) {
                         rowIndex++;
                         tick++;
 
-                        // … deine CSV/BLOB-Logik …
                         for (int i = 1; i <= columnCount; i++) {
                             int type = meta.getColumnType(i);
                             String colName = meta.getColumnName(i);
                             if (type == java.sql.Types.BLOB) {
                                 Blob blob = rs.getBlob(i);
                                 if (blob != null) {
-                                    byte[] data = blob.getBytes(1, (int) blob.length());
+                                    byte[] data = blob.getBytes(1, (int) blob.length()); // optional: streamen
                                     String blobPath = "blobs/blob_" + rowIndex + "_" + colName + ".bin";
                                     zos.putNextEntry(new ZipEntry(blobPath));
                                     zos.write(data);
@@ -274,9 +274,11 @@ public class ExporterController {
                         }
                         csvWriter.newLine();
 
-                        // Fortschritt + Sternchen
-                        updateProgress(rowIndex, countRows);
-
+                        if (total > 0) updateProgress(rowIndex, total);
+                        if (tick >= 10) {
+                            tick = 0;
+                            updateMessage(tableName + " -> Zeile: " + rowIndex); // ✅ statt TableName.setText(...)
+                        }
                     }
 
                     csvWriter.flush();
@@ -285,13 +287,9 @@ public class ExporterController {
                     zos.closeEntry();
 
                     int finalRowCount = rowIndex;
-                    Platform.runLater(() ->
-                            {
-                            logArea.appendText("\nExportierte Zeilen aus " + tableName + ": " + finalRowCount + "\n");
-                            Progress.setVisible(false);
-                                TableName.setVisible(false);
-                            }
-                    );
+                    Platform.runLater(() -> {
+                        logArea.appendText("\nAnzahl exportierte Zeilen: " + finalRowCount + "\n");
+                    });
                 } catch (Exception e) {
                     Platform.runLater(() -> logArea.appendText("\nFehler beim Export: " + e.getMessage() + "\n"));
                 }
@@ -299,8 +297,27 @@ public class ExporterController {
             }
         };
 
-        // ProgressBar binden (indeterminate, wenn progress = -1/-1)
-        Progress.progressProperty().bind(task.progressProperty());
+        // UI-Bindings & Sichtbarkeit
+        progressBar.progressProperty().bind(task.progressProperty());
+        TableName.textProperty().bind(task.messageProperty());
+
+        task.setOnRunning(e -> {
+            progressBar.setManaged(true);
+            progressBar.setVisible(true);
+            TableName.setManaged(true);
+            TableName.setVisible(true);
+        });
+        Runnable hide = () -> {
+            progressBar.progressProperty().unbind();
+            TableName.textProperty().unbind();
+            progressBar.setVisible(false);
+            progressBar.setManaged(false);
+            TableName.setVisible(false);
+            TableName.setManaged(false);
+        };
+        task.setOnSucceeded(e -> hide.run());
+        task.setOnFailed(e -> hide.run());
+        task.setOnCancelled(e -> hide.run());
 
         Thread t = new Thread(task);
         t.setDaemon(true);

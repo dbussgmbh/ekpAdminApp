@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Exporter hinzu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ExporterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ExporterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/util/DbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/util/DbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Exporter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Exporter.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,7 @@
       <workItem from="1751002333050" duration="9322000" />
       <workItem from="1751692109530" duration="9781000" />
       <workItem from="1752037685881" duration="594000" />
-      <workItem from="1754647329754" duration="19239000" />
+      <workItem from="1754647329754" duration="22076000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -286,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754654025873</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Exporter hinzu">
+      <option name="closed" value="true" />
+      <created>1754730812775</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1754730812775</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
