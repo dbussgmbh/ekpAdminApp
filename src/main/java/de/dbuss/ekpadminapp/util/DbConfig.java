@@ -1,5 +1,6 @@
 package de.dbuss.ekpadminapp.util;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -7,7 +8,7 @@ public class DbConfig {
     private static final Properties properties = new Properties();
 
     static {
-        try (InputStream input = DbConfig.class.getResourceAsStream("/db.properties")) {
+        try (InputStream input = new FileInputStream("config/db.properties");) {
             if (input == null) {
                 throw new RuntimeException("db.properties nicht gefunden");
             }
