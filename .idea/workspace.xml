@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Exporter hinzu">
+    <list default="true" id="e90e69d3-4432-4d4c-99ea-ef0feebd0507" name="Changes" comment="Tabellenauswahl hinzugefügt">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/model/ExportItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ExporterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dbuss/ekpadminapp/controller/ExporterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Exporter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/Exporter.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/de/dbuss/ekpadminapp/view/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -98,7 +98,7 @@
       <workItem from="1751002333050" duration="9322000" />
       <workItem from="1751692109530" duration="9781000" />
       <workItem from="1752037685881" duration="594000" />
-      <workItem from="1754647329754" duration="33733000" />
+      <workItem from="1754647329754" duration="41150000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -300,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754769766860</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Tabellenauswahl hinzugefügt">
+      <option name="closed" value="true" />
+      <created>1754825007536</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1754825007536</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +326,8 @@
     <MESSAGE value="Neue Auswahlboxen hinzu" />
     <MESSAGE value="Comperator hinzu" />
     <MESSAGE value="Exporter hinzu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exporter hinzu" />
+    <MESSAGE value="Tabellenauswahl hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tabellenauswahl hinzugefügt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
