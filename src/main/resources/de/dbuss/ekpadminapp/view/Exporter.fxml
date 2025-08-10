@@ -21,6 +21,7 @@
                         <Label text="Parallel-Jobs:"/>
                         <Spinner fx:id="spnMaxParallels" prefWidth="90"/>
                         <Button fx:id="btnStart" text="Start" onAction="#onStart"/>
+                        <Button fx:id="btnStop" text="Stop" onAction="#onStopAll" disable="true"/>
                     </children>
                     <padding><Insets top="10" right="10" bottom="0" left="10"/></padding>
                 </HBox>
@@ -70,6 +71,7 @@
                         <TableColumn fx:id="colProgress" text="Fortschritt"        prefWidth="140"/>
                         <TableColumn fx:id="colStatus"   text="Status"             prefWidth="120"/>
                         <TableColumn fx:id="colMessage"  text="Meldung"            prefWidth="360"/>
+                        <TableColumn fx:id="colAction" text="Aktion" prefWidth="100"/>
                     </columns>
                 </TableView>
             </children>
